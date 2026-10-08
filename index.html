@@ -3,50 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Security Awareness</title>
+
+    <title>Password Strength & Security Awareness</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f2f6fa;
             margin: 0;
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
             color: #222;
         }
 
         .container {
-            max-width: 600px;
-            margin: auto;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 25px;
+        }
+
+        .card {
             background: white;
             padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.10);
         }
 
         h1 {
             text-align: center;
             color: #173b57;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             text-align: center;
-            color: #555;
+            color: #666;
+            line-height: 1.5;
         }
 
         label {
-            font-weight: bold;
             display: block;
-            margin-top: 20px;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        .password-box {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
         }
 
         input {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            box-sizing: border-box;
+            flex: 1;
+            padding: 13px;
             border: 1px solid #bbb;
             border-radius: 8px;
             font-size: 16px;
+        }
+
+        .show-btn {
+            width: auto;
+            margin: 0;
+            padding: 10px 14px;
+            background: #555;
         }
 
         button {
@@ -61,19 +82,65 @@
             cursor: pointer;
         }
 
+        button:hover {
+            opacity: 0.9;
+        }
+
         .result {
             margin-top: 20px;
-            padding: 15px;
+            padding: 18px;
             border-radius: 10px;
-            background: #eef3f7;
+            background: #f1f5f8;
+        }
+
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .requirements {
+            margin-top: 15px;
+        }
+
+        .requirements p {
+            margin: 8px 0;
         }
 
         .tips {
             margin-top: 25px;
+            padding: 20px;
+            background: #f7f9fb;
+            border-radius: 12px;
+        }
+
+        .tips h2 {
+            color: #173b57;
         }
 
         li {
             margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .about {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f7f9fb;
+        }
+
+        .about h2 {
+            color: #173b57;
+        }
+
+        .privacy {
+            margin-top: 20px;
+            padding: 15px;
+            border-left: 4px solid #173b57;
+            background: #eef3f8;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
         .footer {
@@ -89,97 +156,276 @@
 
 <div class="container">
 
-    <h1>🔐 Password Security Awareness</h1>
+    <div class="card">
 
-    <p class="subtitle">
-        Check your password strength and learn basic password security.
-    </p>
+        <h1>🔐 Password Security Awareness</h1>
 
-    <label for="password">Enter a password:</label>
+        <p class="subtitle">
+            Check password strength and learn basic cybersecurity practices.
+        </p>
 
-    <input type="password" id="password" placeholder="Enter password">
+        <label for="password">Enter a test password:</label>
 
-    <button onclick="checkPassword()">Check Password Strength</button>
+        <div class="password-box">
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter a test password"
+            >
 
-    <div class="result" id="result">
-        Your password result will appear here.
-    </div>
+            <button class="show-btn" onclick="togglePassword()">
+                Show
+            </button>
+        </div>
 
-    <div class="tips">
-        <h2>🛡️ Security Tips</h2>
+        <button onclick="checkPassword()">
+            Check Password Strength
+        </button>
 
-        <ul>
-            <li>Use a long password or passphrase.</li>
-            <li>Use uppercase and lowercase letters.</li>
-            <li>Include numbers and special characters.</li>
-            <li>Do not use your name or date of birth.</li>
-            <li>Do not use simple passwords such as 123456.</li>
-            <li>Do not share your password with others.</li>
-            <li>Enable two-factor authentication when available.</li>
-        </ul>
-    </div>
+        <div class="result" id="result">
+            Enter a password above and click the button to check its strength.
+        </div>
 
-    <div class="footer">
-        <p>Cybersecurity Awareness Project</p>
-        <p>Created by Dhanush Devendra</p>
+        <div class="tips">
+
+            <h2>🛡️ Password Security Tips</h2>
+
+            <ul>
+                <li>Use a long password or passphrase.</li>
+                <li>Use uppercase and lowercase letters.</li>
+                <li>Include numbers and special characters.</li>
+                <li>Do not use your name or date of birth.</li>
+                <li>Avoid common passwords such as 123456 or password.</li>
+                <li>Never share your password with other people.</li>
+                <li>Use different passwords for important accounts.</li>
+                <li>Enable two-factor authentication (2FA) when available.</li>
+            </ul>
+
+        </div>
+
+        <div class="about">
+
+            <h2>📚 About This Project</h2>
+
+            <p>
+                This project demonstrates basic password security concepts.
+                It checks common password characteristics and provides
+                security awareness recommendations.
+            </p>
+
+            <p>
+                <strong>Student:</strong> Dhanush Devendra
+            </p>
+
+            <p>
+                <strong>Course:</strong> TY BSc Information Technology
+            </p>
+
+            <p>
+                <strong>College:</strong> SIWS College
+            </p>
+
+            <p>
+                <strong>Project:</strong> Password Strength & Security Awareness
+            </p>
+
+        </div>
+
+        <div class="privacy">
+
+            🔒 <strong>Privacy Notice:</strong>
+
+            This project performs the password check directly in the browser.
+            Do not enter real passwords, banking passwords, or other sensitive
+            passwords while testing this project.
+
+        </div>
+
+        <div class="footer">
+
+            <p>
+                Cybersecurity Awareness Mini Project
+            </p>
+
+            <p>
+                Created by Dhanush Devendra
+            </p>
+
+        </div>
+
     </div>
 
 </div>
 
+
 <script>
 
-function checkPassword() {
+function togglePassword() {
 
-    const password = document.getElementById("password").value;
-    const result = document.getElementById("result");
+    const password = document.getElementById("password");
+    const button = document.querySelector(".show-btn");
 
-    let score = 0;
+    if (password.type === "password") {
 
-    if (password.length >= 8) {
-        score++;
-    }
-
-    if (/[A-Z]/.test(password)) {
-        score++;
-    }
-
-    if (/[a-z]/.test(password)) {
-        score++;
-    }
-
-    if (/[0-9]/.test(password)) {
-        score++;
-    }
-
-    if (/[^A-Za-z0-9]/.test(password)) {
-        score++;
-    }
-
-    if (password.length === 0) {
-
-        result.innerHTML = "⚠️ Please enter a password.";
-
-    } else if (score <= 2) {
-
-        result.innerHTML =
-            "<strong>🔴 WEAK PASSWORD</strong><br><br>" +
-            "Your password needs improvement. " +
-            "Use more characters, numbers, uppercase letters " +
-            "and special characters.";
-
-    } else if (score <= 4) {
-
-        result.innerHTML =
-            "<strong>🟡 MEDIUM PASSWORD</strong><br><br>" +
-            "Your password is acceptable but can be made stronger.";
+        password.type = "text";
+        button.innerText = "Hide";
 
     } else {
 
-        result.innerHTML =
-            "<strong>🟢 STRONG PASSWORD</strong><br><br>" +
-            "Good! Your password contains several strong security characteristics.";
+        password.type = "password";
+        button.innerText = "Show";
 
     }
+}
+
+
+function checkPassword() {
+
+    const password =
+        document.getElementById("password").value;
+
+    const result =
+        document.getElementById("result");
+
+    let score = 0;
+
+    let requirements = "";
+
+
+    if (password.length >= 8) {
+
+        score++;
+
+        requirements +=
+            "<p>✅ At least 8 characters</p>";
+
+    } else {
+
+        requirements +=
+            "<p>❌ At least 8 characters</p>";
+
+    }
+
+
+    if (/[A-Z]/.test(password)) {
+
+        score++;
+
+        requirements +=
+            "<p>✅ Uppercase letter</p>";
+
+    } else {
+
+        requirements +=
+            "<p>❌ Uppercase letter</p>";
+
+    }
+
+
+    if (/[a-z]/.test(password)) {
+
+        score++;
+
+        requirements +=
+            "<p>✅ Lowercase letter</p>";
+
+    } else {
+
+        requirements +=
+            "<p>❌ Lowercase letter</p>";
+
+    }
+
+
+    if (/[0-9]/.test(password)) {
+
+        score++;
+
+        requirements +=
+            "<p>✅ Number</p>";
+
+    } else {
+
+        requirements +=
+            "<p>❌ Number</p>";
+
+    }
+
+
+    if (/[^A-Za-z0-9]/.test(password)) {
+
+        score++;
+
+        requirements +=
+            "<p>✅ Special character</p>";
+
+    } else {
+
+        requirements +=
+            "<p>❌ Special character</p>";
+
+    }
+
+
+    if (password.length === 0) {
+
+        result.innerHTML =
+            "⚠️ Please enter a test password.";
+
+        return;
+    }
+
+
+    let strength = "";
+    let message = "";
+
+
+    if (score <= 2) {
+
+        strength = "🔴 WEAK PASSWORD";
+
+        message =
+            "Your password needs improvement. " +
+            "Follow the recommendations below.";
+
+    } else if (score <= 4) {
+
+        strength = "🟡 MEDIUM PASSWORD";
+
+        message =
+            "Your password is acceptable, " +
+            "but it can be made stronger.";
+
+    } else {
+
+        strength = "🟢 STRONG PASSWORD";
+
+        message =
+            "Good! Your password meets all " +
+            "basic strength checks.";
+
+    }
+
+
+    result.innerHTML =
+
+        "<div class='score'>" +
+        strength +
+        "</div>" +
+
+        "<p>" +
+        message +
+        "</p>" +
+
+        "<p><strong>Security Score: " +
+        score +
+        "/5</strong></p>" +
+
+        "<div class='requirements'>" +
+        "<strong>Password Requirements:</strong>" +
+        requirements +
+        "</div>";
+
 }
 
 </script>
