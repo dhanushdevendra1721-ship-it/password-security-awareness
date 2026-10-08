@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Security Awareness</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6fa;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b57;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #173b57;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #eef3f7;
+        }
+
+        .tips {
+            margin-top: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🔐 Password Security Awareness</h1>
+
+    <p class="subtitle">
+        Check your password strength and learn basic password security.
+    </p>
+
+    <label for="password">Enter a password:</label>
+
+    <input type="password" id="password" placeholder="Enter password">
+
+    <button onclick="checkPassword()">Check Password Strength</button>
+
+    <div class="result" id="result">
+        Your password result will appear here.
+    </div>
+
+    <div class="tips">
+        <h2>🛡️ Security Tips</h2>
+
+        <ul>
+            <li>Use a long password or passphrase.</li>
+            <li>Use uppercase and lowercase letters.</li>
+            <li>Include numbers and special characters.</li>
+            <li>Do not use your name or date of birth.</li>
+            <li>Do not use simple passwords such as 123456.</li>
+            <li>Do not share your password with others.</li>
+            <li>Enable two-factor authentication when available.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Cybersecurity Awareness Project</p>
+        <p>Created by Dhanush Devendra</p>
+    </div>
+
+</div>
+
+<script>
+
+function checkPassword() {
+
+    const password = document.getElementById("password").value;
+    const result = document.getElementById("result");
+
+    let score = 0;
+
+    if (password.length >= 8) {
+        score++;
+    }
+
+    if (/[A-Z]/.test(password)) {
+        score++;
+    }
+
+    if (/[a-z]/.test(password)) {
+        score++;
+    }
+
+    if (/[0-9]/.test(password)) {
+        score++;
+    }
+
+    if (/[^A-Za-z0-9]/.test(password)) {
+        score++;
+    }
+
+    if (password.length === 0) {
+
+        result.innerHTML = "⚠️ Please enter a password.";
+
+    } else if (score <= 2) {
+
+        result.innerHTML =
+            "<strong>🔴 WEAK PASSWORD</strong><br><br>" +
+            "Your password needs improvement. " +
+            "Use more characters, numbers, uppercase letters " +
+            "and special characters.";
+
+    } else if (score <= 4) {
+
+        result.innerHTML =
+            "<strong>🟡 MEDIUM PASSWORD</strong><br><br>" +
+            "Your password is acceptable but can be made stronger.";
+
+    } else {
+
+        result.innerHTML =
+            "<strong>🟢 STRONG PASSWORD</strong><br><br>" +
+            "Good! Your password contains several strong security characteristics.";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
